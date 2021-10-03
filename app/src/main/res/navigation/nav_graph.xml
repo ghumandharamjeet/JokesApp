@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/news_nav_graph"
+    app:startDestination="@id/jokeFragment">
+
+    <fragment
+        android:id="@+id/jokeFragment"
+        android:name="com.app.jokesapp.ui.JokesFragment"
+        android:label="BreakingNewsFragment" >
+        <action
+            android:id="@+id/action_jokesFragment_to_savedJokesFragment"
+            app:destination="@id/savedJokesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/savedJokesFragment"
+        android:name="com.app.jokesapp.ui.SavedJokesFragment"
+        android:label="SavedNewsFragment" />
+
+</navigation>

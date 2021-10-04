@@ -5,8 +5,8 @@ import com.app.joketoday.models.Joke
 
 class JokesRepository(var db: JokesDatabase) {
 
-    suspend fun getJokes() =
-        RetrofitInstance.api.getAllJokes()
+    suspend fun getAJoke() =
+        RetrofitInstance.api.getAJoke()
 
     suspend fun insert(joke: Joke) = db.getJokesDao().insert(joke)
 

@@ -12,6 +12,7 @@ import com.app.joketoday.JokesApplication
 import com.app.joketoday.api.Resource
 import com.app.joketoday.db.JokesRepository
 import com.app.joketoday.models.Joke
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
@@ -35,7 +36,7 @@ class JokesViewModel(
         jokesLiveData.postValue(Resource.Loading())
         try {
             if(hasInternetConnection()) {
-                val response = jokesRepository.getJokes()
+                val response = jokesRepository.getAJoke()
                 jokesLiveData.postValue(handleJokesResponse(response))
             } else {
                 jokesLiveData.postValue(Resource.Error("No internet connection"))

@@ -57,6 +57,16 @@ class JokesViewModel(
         return Resource.Error(response.message())
     }
 
+    fun saveArticle(joke: Joke) = viewModelScope.launch {
+        jokesRepository.insert(joke)
+    }
+
+    fun getSavedNews() = jokesRepository.getAllSavedJokes()
+
+    fun deleteArticle(joke: Joke) = viewModelScope.launch {
+        jokesRepository.deleteJoke(joke)
+    }
+
     private fun hasInternetConnection(): Boolean {
         val connectivityManager = getApplication<JokesApplication>().getSystemService(
             Context.CONNECTIVITY_SERVICE

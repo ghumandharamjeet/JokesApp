@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.app.jokesapp.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_joke.*
 import kotlinx.android.synthetic.main.item_joke_layout.*
 
 class JokesFragment : Fragment(R.layout.fragment_joke) {
@@ -21,6 +22,22 @@ class JokesFragment : Fragment(R.layout.fragment_joke) {
                 tv_joke.text = it.joke
             }
         })
+
+        btAddToFav.setOnClickListener {
+
+        }
+
+        btAddToFav.setOnClickListener {
+
+        }
+
+        btNewJoke.setOnClickListener {
+
+        }
+
+        btShareJoke.setOnClickListener {
+
+        }
 
     }
 }

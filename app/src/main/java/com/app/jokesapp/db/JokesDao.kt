@@ -7,7 +7,7 @@ import com.app.joketoday.models.Joke
 @Dao
 interface JokesDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(joke: Joke): Long
 
     @Query("SELECT * FROM jokes")

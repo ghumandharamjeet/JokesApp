@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.app.jokesapp.R
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_joke.*
 import kotlinx.android.synthetic.main.item_joke_layout.*
 
@@ -24,11 +23,7 @@ class JokesFragment : Fragment(R.layout.fragment_joke) {
         })
 
         btAddToFav.setOnClickListener {
-
-        }
-
-        btAddToFav.setOnClickListener {
-
+            jokesViewModel.saveJoke()
         }
 
         btNewJoke.setOnClickListener {

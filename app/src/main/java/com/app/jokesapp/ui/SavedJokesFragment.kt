@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +23,7 @@ class SavedJokesFragment : Fragment(R.layout.fragment_saved_jokes) {
 
         setupRecyclerView()
 
-        jokesViewModel.getSavedNews().observe(viewLifecycleOwner, Observer{
+        jokesViewModel.getSavedJokes().observe(viewLifecycleOwner, Observer{
             jokesAdapter.differ.submitList(it)
         })
 
@@ -44,10 +43,10 @@ class SavedJokesFragment : Fragment(R.layout.fragment_saved_jokes) {
 
                 val position = viewHolder.adapterPosition
                 var article = jokesAdapter.differ.currentList.get(position)
-                jokesViewModel.deleteArticle(article)
+                jokesViewModel.deleteJoke(article)
                 Snackbar.make(view, "Joke Deleted!", Snackbar.LENGTH_SHORT).apply {
                     setAction("Undo") {
-                        jokesViewModel.saveArticle(article)
+                        jokesViewModel.saveJoke(article)
                     }
                 }.show()
             }

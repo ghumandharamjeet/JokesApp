@@ -57,13 +57,15 @@ class JokesViewModel(
         return Resource.Error(response.message())
     }
 
-    fun saveArticle(joke: Joke) = viewModelScope.launch {
-        jokesRepository.insert(joke)
+    fun saveJoke() = viewModelScope.launch {
+        jokesLiveData.value?.data?.let {
+            jokesRepository.insert(it)
+        }
     }
 
-    fun getSavedNews() = jokesRepository.getAllSavedJokes()
+    fun getSavedJokes() = jokesRepository.getAllSavedJokes()
 
-    fun deleteArticle(joke: Joke) = viewModelScope.launch {
+    fun deleteJoke(joke: Joke) = viewModelScope.launch {
         jokesRepository.deleteJoke(joke)
     }
 
